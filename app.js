@@ -31,7 +31,7 @@
   const desktop = window.muyuDesktop;
   const floatButton = $('float-button');
   const localDesktop = location.protocol === 'file:' || ['localhost', '127.0.0.1'].includes(location.hostname);
-  if (!localDesktop) floatButton.title = '下载 Windows 版，使用桌面悬浮窗';
+  if (!localDesktop) floatButton.title = window.matchMedia('(pointer: coarse)').matches ? '安装安卓版，开启手机悬浮窗' : '下载 Windows 版，使用桌面悬浮窗';
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let state = { count: 0, muted: false, dark: false };
   let audioContext;
@@ -286,7 +286,7 @@
     resetDialog.returnValue = 'cancel';
     resetDialog.showModal();
   });
-  $('download-button').addEventListener('click', () => downloadDialog.showModal());
+  $('download-button').addEventListener('click', () => { $('overlay-guide').hidden = true; downloadDialog.showModal(); });
   $('support-button').addEventListener('click', () => {
     supportDialog.returnValue = 'exit';
     supportDialog.showModal();
@@ -346,8 +346,18 @@
   }
 
   floatButton.addEventListener('click', async () => {
+    if (window.matchMedia('(pointer: coarse)').matches) {
+      $('overlay-guide').textContent = /iPhone|iPad/i.test(navigator.userAgent)
+        ? '跨应用悬浮窗由安卓应用提供，iPhone 可继续在网页里敲木鱼。'
+        : '手机网页无法跨应用悬浮。安装安卓版后点击「悬浮窗」，允许「显示在其他应用上层」。长按大肥鱼可关闭。';
+      if (/MicroMessenger/i.test(navigator.userAgent)) $('overlay-guide').textContent += ' 如果微信无法下载安装包，请从右上角菜单选择在浏览器中打开。';
+      $('overlay-guide').hidden = false;
+      downloadDialog.showModal();
+      return;
+    }
     if (!localDesktop) {
-      notice('下载 Windows 版后，点击应用里的「悬浮窗」。');
+      $('overlay-guide').textContent = '下载 Windows 版后，点击应用里的「悬浮窗」。';
+      $('overlay-guide').hidden = false;
       downloadDialog.showModal();
       return;
     }

@@ -79,6 +79,7 @@ dialog { width: 340px; max-width: calc(100vw - 36px); max-height: calc(var(--ava
 dialog::backdrop { background: #18264230; backdrop-filter: blur(4px); }
 dialog h2 { font: 400 24px "Songti SC", "SimSun", serif; margin: 0 0 18px; }
 dialog p { color: var(--muted); font-size: 12px; }
+#overlay-guide { line-height: 1.7; text-align: left; }
 dialog .support-message { text-align: left; font-size: 14px; line-height: 1.9; margin: 0; }
 .support-animation { display: block; width: 112px; height: 112px; object-fit: contain; margin: 0 auto 16px; border-radius: 12px; }
 @media (orientation: landscape) and (max-height: 580px) {
@@ -130,7 +131,6 @@ body.dark { color-scheme: dark; --bg: #141d35; --ink: #ccdaf7; --muted: #8c9dc5;
 @media (max-width: 360px) {
   .brand { font-size: 14px; gap: 6px; letter-spacing: 0; }
   .brand img { width: 26px; height: 24px; }
-  .float-button { display: none; }
   .header-actions { gap: 0; }
 }
 @media (max-width: 420px) and (pointer: fine) {
@@ -138,9 +138,18 @@ body.dark { color-scheme: dark; --bg: #141d35; --ink: #ccdaf7; --muted: #8c9dc5;
   .header-actions { gap: 0; }
 }
 @media (pointer: coarse) {
-  .float-button { display: none; }
+  .float-button { display: grid; place-items: center; width: 44px; height: 44px; padding: 10px; border: 0; border-radius: 50%; }
+  .float-button svg { width: 21px; height: 21px; }
+  .float-button span { display: none; }
   .hint-desktop { display: none; }
   .hint-touch { display: inline; }
+}
+@media (max-width: 420px) {
+  .header { height: 108px; flex-wrap: wrap; align-content: center; row-gap: 4px; }
+  .brand { width: 100%; justify-content: center; font-size: 18px; letter-spacing: 2px; }
+  .brand img { display: block; width: 30px; height: 27px; }
+  .header-actions { width: 100%; justify-content: center; gap: 8px; }
+  .scene { width: min(540px, 107vw, calc((var(--available-height) - 344px) * 1.5)); }
 }
 @media (orientation: landscape) and (max-height: 580px) {
   .header { height: 56px; }
