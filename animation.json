@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "base": "assets/",
+  "frames": [
+    {
+      "name": "idle",
+      "label": "待机",
+      "duration": 0,
+      "file": "dafeyu-idle-v2.png"
+    },
+    {
+      "name": "strike",
+      "label": "接触",
+      "duration": 140,
+      "file": "dafeyu-strike-v2.png"
+    }
+  ]
+}
