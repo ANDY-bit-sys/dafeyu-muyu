@@ -1,8 +1,8 @@
 {
     "game":  "dafeyu-muyu",
-    "release":  "2026-10-09-a062bce4",
+    "release":  "2026-10-09-de7085b7",
     "files":  {
-                  "index.html":  "e4ac9cfd1009149e79f1c920531a6254c1869f84182e492045258c09ce421f50",
+                  "index.html":  "d7cda04616d0cf434e6535b89d43207e16c237e162cf87353acb9a709fe5ac86",
                   "style.css":  "f758e3e35dcf17d371a7c5e320a473230e0e370bdf85859e0cf223610857a907",
                   "app.js":  "5abc224c21788d1658ce1df5ea500ad9f124f65929b01451d3b2a90f7c653841",
                   "animation.js":  "03e5fb6c34231371980565f2fd19a2f562606ab11f43a1db30fa1f0a1da7ff43",
@@ -13,7 +13,7 @@
                   "assets/dafeyu-strike-v2.png":  "5cf2dc8901548164e73eccf0089b5fedc4e242c2a46f570dd6ccbd028deafa72",
                   "assets/wechat-support.jpg":  "13af87f41af84c54af810355ef1d4e013969789505e25ce4237f4995ac3ed16d",
                   "assets/dafeyu-praying.gif":  "e0a47df02e70060f008ed837f840781a5e3c9280d3d4895e6eb418922799151c",
-                  "downloads/dafeyu-muyu-windows.exe":  "50c991b94101f5c7561195e8b112adf20fe41771f9fe447f1c5bc85d5582f589",
-                  "downloads/dafeyu-muyu-android.apk":  "5faffd598fe0849a03e7d79a9479746d34699c54817588674df85bd9f72b4a81"
+                  "downloads/dafeyu-muyu-windows.exe":  "55eecea747751066fd1dd12275e3a3b8032358dad477a4c7e4dd98adcbd514fd",
+                  "downloads/dafeyu-muyu-android.apk":  "bbcdb47d6e5d902670b88a00404bca2df30de2d65af86e4f558da8ed33ed33ae"
               }
 }
