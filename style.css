@@ -80,6 +80,10 @@ dialog::backdrop { background: #18264230; backdrop-filter: blur(4px); }
 dialog h2 { font: 400 24px "Songti SC", "SimSun", serif; margin: 0 0 18px; }
 dialog p { color: var(--muted); font-size: 12px; }
 dialog .support-message { text-align: left; font-size: 14px; line-height: 1.9; margin: 0; }
+.support-animation { display: block; width: 112px; height: 112px; object-fit: contain; margin: 0 auto 16px; border-radius: 12px; }
+@media (orientation: landscape) and (max-height: 580px) {
+  .support-animation { width: 72px; height: 72px; margin-bottom: 10px; }
+}
 #support-image-dialog { width: 390px; padding: 22px; }
 #support-image-dialog h2 { font-size: 21px; margin-bottom: 16px; }
 .support-image { display: block; width: 100%; height: auto; max-height: max(100px, calc(var(--available-height) - 195px)); object-fit: contain; border-radius: 10px; }
