@@ -35,10 +35,6 @@ svg { stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-lin
 .brand { display: flex; align-items: center; gap: 12px; margin: 0; font: 400 22px "Songti SC", "SimSun", serif; letter-spacing: 3px; }
 .brand img { display: block; }
 .header-actions { display: flex; align-items: center; gap: 21px; }
-.float-button { display: flex; align-items: center; gap: 7px; min-height: 44px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 9px; color: var(--muted); background: transparent; font-size: 12px; white-space: nowrap; }
-.float-button svg { width: 18px; height: 18px; }
-.float-button:hover { color: var(--ink); background: var(--hover); }
-.float-button:disabled { opacity: .6; cursor: wait; }
 .icon-button { display: grid; place-items: center; width: 44px; height: 44px; padding: 10px; color: var(--muted); border: 0; background: transparent; border-radius: 50%; transition: background .2s, color .2s; }
 .icon-button:hover { background: var(--hover); color: var(--ink); }
 .icon-button svg { width: 23px; height: 23px; }
@@ -79,7 +75,6 @@ dialog { width: 340px; max-width: calc(100vw - 36px); max-height: calc(var(--ava
 dialog::backdrop { background: #18264230; backdrop-filter: blur(4px); }
 dialog h2 { font: 400 24px "Songti SC", "SimSun", serif; margin: 0 0 18px; }
 dialog p { color: var(--muted); font-size: 12px; }
-#overlay-guide { line-height: 1.7; text-align: left; }
 dialog .support-message { text-align: left; font-size: 14px; line-height: 1.9; margin: 0; }
 .support-animation { display: block; width: 112px; height: 112px; object-fit: contain; margin: 0 auto 16px; border-radius: 12px; }
 @media (orientation: landscape) and (max-height: 580px) {
@@ -105,8 +100,6 @@ body.dark { color-scheme: dark; --bg: #141d35; --ink: #ccdaf7; --muted: #8c9dc5;
 .dark .sun-icon { display: block; }
 @media (max-width: 800px) {
   .header-actions { gap: 6px; }
-  .float-button { padding: 8px 12px; }
-  .float-button span { display: none; }
 }
 @media (max-width: 600px) {
   .page { padding-inline: max(16px, var(--safe-left)) max(16px, var(--safe-right)); }
@@ -138,9 +131,6 @@ body.dark { color-scheme: dark; --bg: #141d35; --ink: #ccdaf7; --muted: #8c9dc5;
   .header-actions { gap: 0; }
 }
 @media (pointer: coarse) {
-  .float-button { display: grid; place-items: center; width: 44px; height: 44px; padding: 10px; border: 0; border-radius: 50%; }
-  .float-button svg { width: 21px; height: 21px; }
-  .float-button span { display: none; }
   .hint-desktop { display: none; }
   .hint-touch { display: inline; }
 }

@@ -1,19 +1,19 @@
 {
-  "game": "dafeyu-muyu",
-  "release": "2026-10-09-66fbfbf0",
-  "files": {
-    "index.html": "c1e85e6725a15811b5a402b0d138cd5e9a501fd1bf663d2a5d02c275e165e537",
-    "style.css": "91e4aad5b3fe34f668b90b8865590c24749c2f330c8d613cdaf4cfc686818356",
-    "app.js": "4ee19d34e33a9a291ef54e3afb58461ac835650f02e1652b7cd8402b2f622a70",
-    "animation.js": "03e5fb6c34231371980565f2fd19a2f562606ab11f43a1db30fa1f0a1da7ff43",
-    "animation.json": "c29ae036eca93292b0e41edb9c504133adf75079f0015390e3e7f35dcc8c8a07",
-    "desktop/bridge.js": "ed666d80f361b675f78bb663967240e15873475f2ac56cba77aa8555945dd0e2",
-    "assets/whale.svg": "fac433e4dfbf7f42cbb2af07b6b64f6649805b9cb067a442df2027a99429d95a",
-    "assets/dafeyu-idle-v2.png": "c6d60dd37cd4389c20f80684f3bdfa6eb8b741ca8263070a246b7d1b8c840720",
-    "assets/dafeyu-strike-v2.png": "5cf2dc8901548164e73eccf0089b5fedc4e242c2a46f570dd6ccbd028deafa72",
-    "assets/wechat-support.jpg": "13af87f41af84c54af810355ef1d4e013969789505e25ce4237f4995ac3ed16d",
-    "assets/dafeyu-praying.gif": "e0a47df02e70060f008ed837f840781a5e3c9280d3d4895e6eb418922799151c",
-    "downloads/dafeyu-muyu-windows.exe": "50c991b94101f5c7561195e8b112adf20fe41771f9fe447f1c5bc85d5582f589",
-    "downloads/dafeyu-muyu-android.apk": "5faffd598fe0849a03e7d79a9479746d34699c54817588674df85bd9f72b4a81"
-  }
+    "game":  "dafeyu-muyu",
+    "release":  "2026-10-09-a062bce4",
+    "files":  {
+                  "index.html":  "e4ac9cfd1009149e79f1c920531a6254c1869f84182e492045258c09ce421f50",
+                  "style.css":  "f758e3e35dcf17d371a7c5e320a473230e0e370bdf85859e0cf223610857a907",
+                  "app.js":  "5abc224c21788d1658ce1df5ea500ad9f124f65929b01451d3b2a90f7c653841",
+                  "animation.js":  "03e5fb6c34231371980565f2fd19a2f562606ab11f43a1db30fa1f0a1da7ff43",
+                  "animation.json":  "c29ae036eca93292b0e41edb9c504133adf75079f0015390e3e7f35dcc8c8a07",
+                  "desktop/bridge.js":  "ed666d80f361b675f78bb663967240e15873475f2ac56cba77aa8555945dd0e2",
+                  "assets/whale.svg":  "fac433e4dfbf7f42cbb2af07b6b64f6649805b9cb067a442df2027a99429d95a",
+                  "assets/dafeyu-idle-v2.png":  "c6d60dd37cd4389c20f80684f3bdfa6eb8b741ca8263070a246b7d1b8c840720",
+                  "assets/dafeyu-strike-v2.png":  "5cf2dc8901548164e73eccf0089b5fedc4e242c2a46f570dd6ccbd028deafa72",
+                  "assets/wechat-support.jpg":  "13af87f41af84c54af810355ef1d4e013969789505e25ce4237f4995ac3ed16d",
+                  "assets/dafeyu-praying.gif":  "e0a47df02e70060f008ed837f840781a5e3c9280d3d4895e6eb418922799151c",
+                  "downloads/dafeyu-muyu-windows.exe":  "50c991b94101f5c7561195e8b112adf20fe41771f9fe447f1c5bc85d5582f589",
+                  "downloads/dafeyu-muyu-android.apk":  "5faffd598fe0849a03e7d79a9479746d34699c54817588674df85bd9f72b4a81"
+              }
 }

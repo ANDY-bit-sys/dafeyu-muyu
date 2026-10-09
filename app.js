@@ -29,10 +29,7 @@
   const supportImageDialog = $('support-image-dialog');
   const modalOpen = () => resetDialog.open || downloadDialog.open || supportDialog.open || supportImageDialog.open;
   const desktop = window.muyuDesktop;
-  const floatButton = $('float-button');
-  window.muyuOpenNativePet = () => window.location.assign('dafeyu-muyu://pet');
   const localDesktop = location.protocol === 'file:' || ['localhost', '127.0.0.1'].includes(location.hostname);
-  if (!localDesktop) floatButton.title = window.matchMedia('(pointer: coarse)').matches ? '安装安卓版，开启手机悬浮窗' : '打开悬浮窗';
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let state = { count: 0, muted: false, dark: false };
   let audioContext;
@@ -287,7 +284,7 @@
     resetDialog.returnValue = 'cancel';
     resetDialog.showModal();
   });
-  $('download-button').addEventListener('click', () => { $('overlay-guide').hidden = true; downloadDialog.showModal(); });
+  $('download-button').addEventListener('click', () => downloadDialog.showModal());
   $('support-button').addEventListener('click', () => {
     supportDialog.returnValue = 'exit';
     supportDialog.showModal();
@@ -342,41 +339,9 @@
 
   if (previewTwoFrames) {
     document.title = '大肥鱼木鱼 · 两帧预览';
-    floatButton.remove();
     notice('两帧预览：待机 → 敲击 → 待机。');
   }
 
-  floatButton.addEventListener('click', async () => {
-    if (window.matchMedia('(pointer: coarse)').matches) {
-      $('overlay-guide').textContent = /iPhone|iPad/i.test(navigator.userAgent)
-        ? '跨应用悬浮窗由安卓应用提供，iPhone 可继续在网页里敲木鱼。'
-        : '手机网页无法跨应用悬浮。安装安卓版后点击「悬浮窗」，允许「显示在其他应用上层」。长按大肥鱼可关闭。';
-      if (/MicroMessenger/i.test(navigator.userAgent)) $('overlay-guide').textContent += ' 如果微信无法下载安装包，请从右上角菜单选择在浏览器中打开。';
-      $('overlay-guide').hidden = false;
-      downloadDialog.showModal();
-      return;
-    }
-    const useNative = localDesktop && (desktop?.connected || window.muyuDesktopAutoConnect);
-    if (!useNative && /Windows NT/i.test(navigator.userAgent)) {
-      notice('已请求打开透明桌宠。首次请从下载图标下载并运行新版 Windows 应用；浏览器询问时选择打开。');
-      window.muyuOpenNativePet();
-      return;
-    }
-    if (!localDesktop) {
-      $('overlay-guide').textContent = '透明桌面悬浮窗由 Windows 应用提供；安卓版可在手机上跨应用悬浮。';
-      $('overlay-guide').hidden = false;
-      downloadDialog.showModal();
-      return;
-    }
-    floatButton.disabled = true;
-    try {
-      if (!desktop.connected) applyRemote(await desktop.connect(state));
-      await desktop.openPet();
-      notice('悬浮窗已打开：拖动大肥鱼移动，右键可静音或关闭。');
-    } catch {
-      notice('请先双击「电子木鱼.cmd」启动桌面模式，再点击悬浮窗。');
-    } finally { floatButton.disabled = false; }
-  });
   if (localDesktop && window.muyuDesktopAutoConnect && !previewTwoFrames) {
     desktop.connect(state).then(applyRemote).catch(() => notice('桌面模式未连接，请重新双击「电子木鱼.cmd」。'));
   }
