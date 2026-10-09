@@ -30,8 +30,9 @@
   const modalOpen = () => resetDialog.open || downloadDialog.open || supportDialog.open || supportImageDialog.open;
   const desktop = window.muyuDesktop;
   const floatButton = $('float-button');
+  const webPet = window.muyuWebPet;
   const localDesktop = location.protocol === 'file:' || ['localhost', '127.0.0.1'].includes(location.hostname);
-  if (!localDesktop) floatButton.title = window.matchMedia('(pointer: coarse)').matches ? '安装安卓版，开启手机悬浮窗' : '下载 Windows 版，使用桌面悬浮窗';
+  if (!localDesktop) floatButton.title = window.matchMedia('(pointer: coarse)').matches ? '安装安卓版，开启手机悬浮窗' : '打开悬浮窗';
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let state = { count: 0, muted: false, dark: false };
   let audioContext;
@@ -108,6 +109,7 @@
   function renderCount() {
     count.textContent = state.count.toLocaleString('zh-CN');
     count.classList.toggle('long-count', count.textContent.length > 12);
+    webPet?.render();
   }
 
   function renderSettings() {
@@ -121,6 +123,7 @@
     themeToggle.title = state.dark ? '日间模式' : '夜间模式';
     document.querySelector('meta[name="theme-color"]').content = state.dark ? '#141d35' : '#fbfcfe';
     if (masterGain) masterGain.gain.setTargetAtTime(state.muted ? 0 : .65, audioContext.currentTime, .012);
+    webPet?.render();
   }
 
   // A brief impact excites damped wooden resonances, generated entirely offline.
@@ -239,6 +242,7 @@
     save();
     void playKnock();
     sendRemote({ type: 'strike' });
+    webPet?.animate();
 
     const merit = temporaryEffect($('merits'), 'merit', reducedMotion.matches ? 450 : 1050);
     merit.textContent = '功德 +1';
@@ -311,6 +315,7 @@
     clearTimeout(announceTimer);
     stopStrikeAnimation();
     sceneAnimation?.cancel();
+    webPet?.render();
     $('merits').replaceChildren();
     $('ripples').replaceChildren();
     renderCount();
@@ -355,8 +360,19 @@
       downloadDialog.showModal();
       return;
     }
+    const useNative = localDesktop && (desktop?.connected || window.muyuDesktopAutoConnect);
+    if (!useNative && webPet?.supported()) {
+      floatButton.disabled = true;
+      try {
+        await webPet.open({getState:()=>state,onStrike:strike,onMute:()=>soundToggle.click(),onTheme:()=>themeToggle.click(),idle:$('hero-idle').src,strike:strikeImage.src,duration:140});
+        notice('悬浮窗已打开，点击木鱼敲击，右键可调整声音或关闭。');
+      } catch {
+        notice('悬浮窗未能打开，请重试或用最新版 Edge、Chrome 打开。');
+      } finally {floatButton.disabled = false;}
+      return;
+    }
     if (!localDesktop) {
-      $('overlay-guide').textContent = '下载 Windows 版后，点击应用里的「悬浮窗」。';
+      $('overlay-guide').textContent = '当前浏览器不支持网页置顶小窗，可用最新版 Edge、Chrome 打开，或下载 Windows 版使用透明桌面悬浮窗。';
       $('overlay-guide').hidden = false;
       downloadDialog.showModal();
       return;

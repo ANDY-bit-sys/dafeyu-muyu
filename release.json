@@ -1,10 +1,11 @@
 {
   "game": "dafeyu-muyu",
-  "release": "2026-10-09-88fa3ef0",
+  "release": "2026-10-09-65271dfa",
   "files": {
-    "index.html": "07ae697da33c1f0b4ca542116cf0a01f6ed3e013b3aebacd990fee310a1b5981",
+    "index.html": "c1bd0ead1b8b6987ec2ea0499c7f285edaccf10ec03de124e9ecf27d06fccdd0",
     "style.css": "91e4aad5b3fe34f668b90b8865590c24749c2f330c8d613cdaf4cfc686818356",
-    "app.js": "bb78de67c85cd331207aab4443d9d3c54ce2f8b158fb789c9849b0ca14da7ec9",
+    "app.js": "af5f4a9aee1314ef3cf7216c15b83d4a4c37ad99b39df81dd408870f48ab5fde",
+    "web-pet.js": "a1d965e57238d66ba4a9c31bd91bce02f0f0ba8f9ea4de32b9ccedfd572e9cc8",
     "animation.js": "03e5fb6c34231371980565f2fd19a2f562606ab11f43a1db30fa1f0a1da7ff43",
     "animation.json": "c29ae036eca93292b0e41edb9c504133adf75079f0015390e3e7f35dcc8c8a07",
     "desktop/bridge.js": "ed666d80f361b675f78bb663967240e15873475f2ac56cba77aa8555945dd0e2",
